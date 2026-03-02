@@ -1,8 +1,6 @@
 const navToggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
 const yearNode = document.querySelector("#year");
-const mailButton = document.querySelector("#email-cta");
-const formNote = document.querySelector("#form-note");
 const currencySelect = document.querySelector("#currency-select");
 const conversionNote = document.querySelector("#conversion-note");
 const gbpLock = document.querySelector("#gbp-lock");
@@ -24,30 +22,6 @@ if (navToggle && nav) {
       nav.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
     });
-  });
-}
-
-if (mailButton) {
-  mailButton.addEventListener("click", () => {
-    const name = document.querySelector("#name")?.value.trim();
-    const email = document.querySelector("#email")?.value.trim();
-    const message = document.querySelector("#message")?.value.trim();
-
-    if (!name || !email || !message) {
-      if (formNote) {
-        formNote.textContent = "Please complete all fields before sending.";
-      }
-      return;
-    }
-
-    const subject = encodeURIComponent(`Contract support inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nProject brief:\n${message}`
-    );
-    window.location.href = `mailto:jake_yewdell@live.co.uk?subject=${subject}&body=${body}`;
-    if (formNote) {
-      formNote.textContent = "Opening your email app to send the inquiry.";
-    }
   });
 }
 
